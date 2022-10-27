@@ -12,8 +12,8 @@ namespace CrudApp
         private SqlConnection con = new SqlConnection("Data Source=MOBACK;DataBase=Student;Integrated Security=True");
         public void CreateUser()
         {
-			try
-			{
+	    try
+            {
                 con.Open();
                 Console.Write("Enter Your Name : ");
                 string userName = Console.ReadLine();
