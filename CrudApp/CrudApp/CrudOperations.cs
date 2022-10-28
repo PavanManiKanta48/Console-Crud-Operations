@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data.SqlClient; //to connect with SQL database
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +19,7 @@ namespace CrudApp
                 string userName = Console.ReadLine();
                 Console.Write("Enter Your Age : ");
                 int userAge = int.Parse(Console.ReadLine());
-                SqlCommand insertCmd = new SqlCommand("insert into UserDetails(User_Name,User_age) values('" + userName + "'," + userAge + ")", con);
+                SqlCommand insertCmd = new SqlCommand("Sp_insert'" + userName + "'," + userAge + "", con);
                 insertCmd.ExecuteNonQuery();
                 Console.WriteLine("Data Will be successfully inserted into the table");
             }
@@ -38,7 +38,7 @@ namespace CrudApp
             try
             {
                 con.Open();
-                SqlCommand displaCmd = new SqlCommand("Select * From UserDetails", con);
+                SqlCommand displaCmd = new SqlCommand("SELECT * FROM Retrive_Userdetails", con);
                 SqlDataReader dr = displaCmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -92,7 +92,7 @@ namespace CrudApp
                 int d_Id;
                 Console.Write("Enter Your id that you would like to delete : ");
                 d_Id = int.Parse(Console.ReadLine());
-                SqlCommand deleteCmd = new SqlCommand("Delete from UserDetails where User_Id = " + d_Id, con);
+                SqlCommand deleteCmd = new SqlCommand("sp_delete " + d_Id, con);
                 deleteCmd.ExecuteNonQuery();
                 Console.WriteLine("record Deleted succesfully :");
             }

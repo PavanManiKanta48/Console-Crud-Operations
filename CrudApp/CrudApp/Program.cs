@@ -14,9 +14,9 @@ namespace CrudApp
             
             CrudOperations operations = new CrudOperations();
             // operations.CreateUser();
-            operations.RetriveUser();
-            //operations.UpdateUser();
-            operations.DeleteUser();
+            //operations.RetriveUser();
+            operations.UpdateUser();
+            //operations.DeleteUser();
         }
     } 
 }
