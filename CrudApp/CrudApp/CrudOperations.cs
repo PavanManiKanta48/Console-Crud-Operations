@@ -19,7 +19,7 @@ namespace CrudApp
                 string userName = Console.ReadLine();
                 Console.Write("Enter Your Age : ");
                 int userAge = int.Parse(Console.ReadLine());
-                SqlCommand insertCmd = new SqlCommand("Sp_insert'" + userName + "'," + userAge + "", con);
+                SqlCommand insertCmd = new SqlCommand("Sp_insert'" + userName + "'," + userAge , con);
                 insertCmd.ExecuteNonQuery();
                 Console.WriteLine("Data Will be successfully inserted into the table");
             }
@@ -70,7 +70,7 @@ namespace CrudApp
                 int u_Age = int.Parse(Console.ReadLine());
                 Console.Write("Enter Your Name that you would like to update : ");
                 u_Name = Console.ReadLine();
-                SqlCommand updateCmd = new SqlCommand("update UserDetails set User_age =  " + u_Age + " ,User_Name = '" + u_Name + "' where User_Id = " + u_Id + "", con);
+                SqlCommand updateCmd = new SqlCommand("Sp_Update " + u_Id + ",'" + u_Name + "', " +u_Age , con);
                 updateCmd.ExecuteNonQuery();
                 Console.WriteLine("record updated succesfully :");
             }
